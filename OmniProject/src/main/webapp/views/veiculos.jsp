@@ -6,11 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>javaguides.net</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <%@ page isELIgnored="false"%>
-<script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+
 </head>
 <body>
 	<div class="container">
@@ -37,22 +35,22 @@
 						</tr>
 
 						<!-- loop over and print our customers -->
-						<c:forEach var="tempCustomer" items="${customers}">
+						<c:forEach var="veiculo" items="${veiculos}">
 
 							<!-- construct an "update" link with customer id -->
 							<c:url var="updateLink" value="/customer/updateForm">
-								<c:param name="customerId" value="${tempCustomer.id}" />
+								<c:param name="veiculoId" value="${veiculo.marca}" />
 							</c:url>
 
 							<!-- construct an "delete" link with customer id -->
-							<c:url var="deleteLink" value="/customer/delete">
-								<c:param name="customerId" value="${tempCustomer.id}" />
+							<c:url var="deleteLink" value="/views/veiculo/delete">
+								<c:param name="veiculoId" value="${veiculo.marca}" />
 							</c:url>
 
 							<tr>
-								<td>${tempCustomer.firstName}</td>
-								<td>${tempCustomer.lastName}</td>
-								<td>${tempCustomer.email}</td>
+								<td>${veiculo.marca}</td>
+								<td>${veiculo.marca}</td>
+								<td>${veiculo.marca}</td>
 
 								<td>
 									<!-- display the update link --> <a href="${updateLink}">Update</a>
