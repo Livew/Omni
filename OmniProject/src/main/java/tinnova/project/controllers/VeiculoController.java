@@ -1,6 +1,7 @@
 package tinnova.project.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,15 +17,17 @@ import tinnova.project.repository.VeiculoRepository;
 import javassist.tools.web.BadHttpRequest;
 
 @RestController
-@RequestMapping(path = "/veiculos")
 public class VeiculoController {
 
     @Autowired
     private VeiculoRepository repository;
 
     @GetMapping
-    public Iterable<Veiculo> findAll() {
-        return repository.findAll();
+    @RequestMapping(path = "/veiculos")
+    public String findAll(Model model) {
+    	Iterable<Veiculo> veiculos = repository.findAll();
+        model.addAttribute("veiculos", veiculos);
+        return "veiculos";
     }
 
     @GetMapping(path = "/{veiculo}")
