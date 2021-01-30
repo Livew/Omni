@@ -23,7 +23,7 @@ public class VeiculoController {
     private VeiculoRepository repository;
 
     @GetMapping
-    @RequestMapping(path = "/veiculos")
+    @RequestMapping(path = "/views/veiculos")
     public String findAll(Model model) {
     	Iterable<Veiculo> veiculos = repository.findAll();
         model.addAttribute("veiculos", veiculos);
