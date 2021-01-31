@@ -1,5 +1,6 @@
 package tinnova.project.controllers;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import org.springframework.http.ResponseEntity;
@@ -44,6 +45,7 @@ public class VeiculoController {
     
     @PostMapping("/veiculos")
     public Veiculo createEmployee(@Valid @RequestBody Veiculo veiculo) {
+    	veiculo.setCreated(new Date());
         return veiculoRepository.save(veiculo);
     }
 
@@ -51,9 +53,13 @@ public class VeiculoController {
     public ResponseEntity<Veiculo> updateVeiculo(@PathVariable(value = "id") int veiculoId,
          @Valid @RequestBody Veiculo veiculoDetalhes) throws Exception {
     	Veiculo veiculo = veiculoRepository.findOne(veiculoId);
-
-
+    	
+    	veiculo.setVendido(veiculoDetalhes.isVendido());
+    	veiculo.setDescricao(veiculoDetalhes.getDescricao());
+    	veiculo.setAno(veiculoDetalhes.getAno());
     	veiculo.setMarca(veiculoDetalhes.getMarca());
+    	veiculo.setUpdated(new Date());
+    	
         final Veiculo updateVeiculo = veiculoRepository.save(veiculo);
         return ResponseEntity.ok(updateVeiculo);
     }

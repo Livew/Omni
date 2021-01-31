@@ -1,22 +1,32 @@
-<h3>Create Veiculo</h3>
+<h3>Adicionar Veiculo</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">First Name</label>
+      <label for="name">Marca</label>
       <input type="text" class="form-control" id="firstName" required [(ngModel)]="veiculo.marca" name="firstName">
     </div>
 
     <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="veiculo.ano" name="lastName">
+      <label for="name">Ano</label>
+      <!-- <input type="text" class="form-control" id="lastName" required [(ngModel)]="veiculo.ano" name="lastName" maxlength="4" placeholder="2020" pattern=”[0–9]”> -->
+      <select name="ano" id="ano" class="form-control" [(ngModel)]="veiculo.ano">
+        <option *ngFor="let ano of anos" [ngValue]="ano">{{ ano }}</option>
+    </select>
     </div>
 
     <div class="form-group">
-      <label for="name">Email Id</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="veiculo.vendido" name="emailId">
+      <label for="name">Vendido</label><br>
+      <input type="radio" [(ngModel)]="veiculo.vendido" value="false" required name="vendidoFalse"> Nao
+      <input type="radio" [(ngModel)]="veiculo.vendido" value="true" required name="vendidoTrue"> Sim<br>
+      <!-- <input type="radio" class="form-control" id="emailId" required [(ngModel)]="veiculo.vendido" name="emailId"> -->
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <div class="form-group">
+        <label for="name">Descricao</label>
+        <input type="text" class="form-control" id="emailId" required [(ngModel)]="veiculo.descricao" name="emailId">
+      </div>
+
+    <button type="submit" class="btn btn-success">Adicionar</button>
   </form>
 </div>
 

@@ -1,0 +1,30 @@
+<h2>Detalhes do Veiculo</h2> 
+
+<hr/>
+<div *ngIf="veiculo">
+  <div>
+    <label><b>Marca: </b></label> {{veiculo.marca}}
+  </div>
+  <div>
+    <label><b>Ano: </b></label> {{veiculo.ano}}
+  </div>
+  <div *ngIf="!veiculo.vendido">
+    <label><b>Vendido: </b></label> Não
+  </div>
+  <div *ngIf="veiculo.vendido">
+    <label><b>Vendido: </b></label> Sim
+  </div>    
+  <div>
+    <label><b>Descricao: </b></label> {{veiculo.descricao}}
+  </div>
+  <div>
+    <label><b>Adicionado: </b></label> {{veiculo.created | date :  "dd.MM.y"}}
+  </div>  
+  <div>
+    <label><b>Atualizado: </b></label> {{veiculo.updated | date :  "dd.MM.y"}}
+  </div>    
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Voltar</button><br>

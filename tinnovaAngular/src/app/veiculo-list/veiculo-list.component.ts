@@ -40,4 +40,8 @@ export class VeiculoListComponent implements OnInit {
     this.router.navigate(['details', id]);
   }
 
+  updateVeiculo(id: number){
+    this.router.navigate(['update', id]);
+  }
+
 }

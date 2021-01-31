@@ -8,13 +8,15 @@ import { VeiculoListComponent } from './veiculo-list/veiculo-list.component';
 import { UpdateVeiculoComponent } from './update-veiculo/update-veiculo.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { VeiculoDetailsComponent } from './veiculo-details/veiculo-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateVeiculoComponent,
     VeiculoListComponent,
-    UpdateVeiculoComponent
+    UpdateVeiculoComponent,
+    VeiculoDetailsComponent,
   ],
   imports: [
     BrowserModule,

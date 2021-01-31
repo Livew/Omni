@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2>Veiculo List</h2>
+      <h2>Lista de Veiculos</h2>
     </div>
     <div class="panel-body">
       <table class="table table-striped">
@@ -9,18 +9,20 @@
             <th>Marca</th>
             <th>Ano</th>
             <th>Vendido</th>
-            <th>Descricao</th>
-            <th>Actions</th>
+            <th>Descrição</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let veiculo of veiculos | async">
-            <td>{{veiculo.marca}}</td>
+            <td font-size="20px">{{veiculo.marca}}</td>
             <td>{{veiculo.ano}}</td>
-            <td>{{veiculo.vendido}}</td>
+            <td *ngIf="veiculo.vendido">Sim</td>
+            <td *ngIf="!veiculo.vendido">Não</td>
             <td>{{veiculo.descricao}}</td>
-            <td><button (click)="deleteEmployee(veiculo.veiculo)" class="btn btn-danger">Delete</button>
-                <!-- <button (click)="employeeDetails(veiculo.id)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+            <td><button (click)="deleteEmployee(veiculo.veiculo)" class="btn btn-danger">Excluir</button>
+                <button (click)="updateVeiculo(veiculo.veiculo)" class="btn btn-success" style="margin-left: 10px">Editar</button>
+                <button (click)="employeeDetails(veiculo.veiculo)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
             </td>
           </tr>
         </tbody>
